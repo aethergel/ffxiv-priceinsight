@@ -84,7 +84,7 @@ public class PriceInsightPlugin : IDalamudPlugin {
                 var manager = InventoryManager.Instance();
                 foreach (var inv in inventoriesToScan) {
                     var container = manager->GetInventoryContainer(inv);
-                    if (container == null || !container->IsLoaded)
+                    if (container == null || container->Loaded == 0)
                         continue;
                     for (var i = 0; i < container->Size; i++) {
                         var item = &container->Items[i];
